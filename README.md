@@ -48,3 +48,22 @@ Esto guarda todos tus proyectos en ~/n8n-server/data y arranca n8n automáticame
     docker compose start    # Iniciar de nuevo
     docker compose down     # Apagar y borrar contenedor (los datos se conservan)
     ```
+
+## PASOS PARA ACTUALIZAR N8N
+1. Abre la terminal y ve a la carpeta donde está tu configuración:
+    ```bash
+    cd ~/n8n-server
+    ```
+2. (Opcional) Haz una copia de seguridad de tus datos por si acaso:
+   ```bash
+    cp -r data data-backup
+    ```
+3. Descarga la última versión de la imagen de n8n:
+      ```bash
+    docker pull n8nio/n8n
+    ```
+4. Reinicia el contenedor con la nueva imagen:
+   ```bash
+    docker compose down    # Detiene y elimina el contenedor actual (los datos persisten)
+    docker compose up -d   # Crea e inicia un nuevo contenedor con la versión actualizada
+    ```
